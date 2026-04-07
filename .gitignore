@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Build output
+dist/
+
+# Environment
+.env
+.env.local
+.env.production
+.env.backup
+
+# IDE
+.vscode/
+.idea/
+.fleet/
+.nova/
+.zed/
+
+# OS
+.DS_Store
+Thumbs.db
+*.log
+
+# Misc
+*.local
