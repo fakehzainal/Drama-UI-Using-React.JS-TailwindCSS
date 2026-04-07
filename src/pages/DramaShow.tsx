@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { fetchDramaInfo } from '@/lib/api';
+import { fetchDramaInfo, optimizeImageUrlHQ } from '@/lib/api';
 import Navbar from '@/components/Navbar';
 import BackgroundBlur from '@/components/BackgroundBlur';
 import { DetailSkeleton } from '@/components/Skeletons';
@@ -86,9 +86,13 @@ export default function DramaShow() {
                         <div className="sticky top-12 space-y-8">
                             <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/80 group">
                                 <img 
-                                    src={drama.image} 
+                                    src={optimizeImageUrlHQ(drama.image, 600)} 
                                     alt={drama.title} 
                                     className="w-full h-auto aspect-[3/4.5] object-cover transform group-hover:scale-105 transition-transform duration-1000" 
+                                    decoding="async"
+                                    fetchPriority="high"
+                                    width={600}
+                                    height={900}
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
                                 <div className="absolute top-4 right-4 bg-blue-600 px-4 py-1.5 rounded-full text-[10px] font-black tracking-widest shadow-xl border border-blue-400/30 uppercase">

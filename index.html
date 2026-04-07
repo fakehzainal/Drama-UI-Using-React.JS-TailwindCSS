@@ -6,9 +6,24 @@
         <meta name="description" content="Nonton drama Korea, China terbaru sub Indo. Streaming gratis kualitas HD." />
         <title>Drama Korea - Streaming Drama Terbaru</title>
         <link rel="icon" type="image/png" href="/favicon.png" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+        <!-- Preconnect to API & image servers (eliminates DNS+TCP+TLS latency) -->
+        <link rel="preconnect" href="https://api.sonzaix.indevs.in" crossorigin />
+        <link rel="dns-prefetch" href="https://api.sonzaix.indevs.in" />
+        <link rel="preconnect" href="https://wsrv.nl" crossorigin />
+        <link rel="dns-prefetch" href="https://wsrv.nl" />
+
+        <!-- Fonts: preconnect + preload critical font weight -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+        <!-- Inline critical above-the-fold CSS to speed up FCP -->
+        <style>
+            body{margin:0;background:#0f172a;color:#e2e8f0;font-family:Inter,system-ui,sans-serif}
+            #root{min-height:100vh}
+        </style>
     </head>
     <body class="font-sans antialiased">
         <div id="root"></div>

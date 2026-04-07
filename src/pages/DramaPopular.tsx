@@ -66,7 +66,7 @@ export default function DramaPopular() {
                                     <div className="absolute -top-4 -left-4 w-12 h-12 bg-white text-slate-900 rounded-full flex items-center justify-center font-black text-xl shadow-xl z-10 group-hover:bg-orange-500 group-hover:text-white transition-all transform group-hover:scale-110">
                                         {idx + 1}
                                     </div>
-                                    <DramaCard drama={drama} />
+                                    <DramaCard drama={drama} priority={idx < 5} />
                                 </div>
                             ))
                         ) : (
@@ -79,11 +79,7 @@ export default function DramaPopular() {
                 )}
             </div>
 
-            {/* Background Decorative Blur */}
-            <div className="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
-                <div className="absolute top-[30%] left-[-10%] w-[50%] h-[50%] bg-orange-500/5 blur-[150px] rounded-full"></div>
-                <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-purple-500/5 blur-[150px] rounded-full"></div>
-            </div>
+            <BackgroundBlur />
         </div>
     );
 }

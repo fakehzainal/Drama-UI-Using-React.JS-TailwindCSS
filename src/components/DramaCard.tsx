@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { optimizeImageUrl } from '@/lib/api';
 
 interface Drama {
     id: string;
@@ -9,16 +10,25 @@ interface Drama {
     hits: string;
 }
 
-export default function DramaCard({ drama }: { drama: Drama }) {
+export default function DramaCard({ drama, priority = false }: { drama: Drama; priority?: boolean }) {
+    const [loaded, setLoaded] = useState(false);
+    const optimizedSrc = optimizeImageUrl(drama.image, 300);
+
     return (
         <Link to={`/drama/${drama.id}`} className="block">
             <article className="group bg-slate-800/50 rounded-2xl overflow-hidden border border-slate-700/50 hover:border-blue-500/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-500/10">
-                <div className="relative aspect-[3/4.5] overflow-hidden">
+                <div className="relative aspect-[3/4.5] overflow-hidden bg-slate-800">
+                    {/* Low-quality shimmer placeholder until image loads */}
+                    {!loaded && <div className="absolute inset-0 skeleton" />}
                     <img 
-                        src={drama.image} 
+                        src={optimizedSrc}
                         alt={drama.title} 
-                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" 
-                        loading="lazy" 
+                        className={`w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+                        loading={priority ? "eager" : "lazy"}
+                        decoding="async"
+                        width={300}
+                        height={450}
+                        onLoad={() => setLoaded(true)}
                     />
                     <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent p-4">
                         <span className="text-[10px] uppercase tracking-widest font-bold text-blue-400/90 line-clamp-1">

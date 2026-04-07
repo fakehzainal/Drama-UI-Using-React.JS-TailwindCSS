@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
-import { fetchDramaList, searchDrama } from '@/lib/api';
+import { fetchDramaList, searchDrama, prefetchedHome } from '@/lib/api';
 import Navbar from '@/components/Navbar';
 import Header from '@/components/Header';
 import DramaCard from '@/components/DramaCard';
@@ -39,6 +39,9 @@ export default function DramaIndex() {
                 let data;
                 if (searchTerm) {
                     data = await searchDrama(searchTerm, currentPage);
+                } else if (currentCategory === 'korea' && currentPage === 1 && !searchTerm) {
+                    // Use the prefetched data for the landing page (already started loading at module parse time)
+                    data = await prefetchedHome;
                 } else {
                     data = await fetchDramaList(currentCategory, currentPage);
                 }
@@ -63,8 +66,8 @@ export default function DramaIndex() {
                 ) : (
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-8">
                         {dramas.length > 0 ? (
-                            dramas.map((drama) => (
-                                <DramaCard key={drama.id} drama={drama} />
+                            dramas.map((drama, idx) => (
+                                <DramaCard key={drama.id} drama={drama} priority={idx < 5} />
                             ))
                         ) : (
                             <div className="col-span-full py-20 text-center">

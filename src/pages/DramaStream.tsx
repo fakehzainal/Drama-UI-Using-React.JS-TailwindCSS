@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { fetchDramaInfo, fetchStreamInfo } from '@/lib/api';
+import { fetchDramaInfo, fetchStreamInfo, optimizeImageUrlHQ } from '@/lib/api';
 import Navbar from '@/components/Navbar';
 import BackgroundBlur from '@/components/BackgroundBlur';
 
@@ -112,7 +112,7 @@ export default function DramaStream() {
                                     controls 
                                     className="w-full h-full"
                                     autoPlay
-                                    poster={drama.image}
+                                    poster={optimizeImageUrlHQ(drama.image, 1280)}
                                 >
                                     <source src={videoUrl} type="video/mp4" />
                                     Browser Anda tidak mendukung pemutar video.
