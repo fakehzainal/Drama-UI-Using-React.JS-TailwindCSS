@@ -7,21 +7,22 @@
         <title>Drama Korea - Streaming Drama Terbaru</title>
         <link rel="icon" type="image/png" href="/favicon.png" />
 
-        <!-- Preconnect to API & image servers (eliminates DNS+TCP+TLS latency) -->
+        <!-- Preconnect to API & image servers -->
         <link rel="preconnect" href="https://api.sonzaix.indevs.in" crossorigin />
         <link rel="dns-prefetch" href="https://api.sonzaix.indevs.in" />
         <link rel="preconnect" href="https://wsrv.nl" crossorigin />
         <link rel="dns-prefetch" href="https://wsrv.nl" />
 
-        <!-- Fonts: preconnect + preload critical font weight -->
+        <!-- Fonts: preconnect + non-blocking load with media="print" trick -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+        <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" /></noscript>
 
-        <!-- Inline critical above-the-fold CSS to speed up FCP -->
+        <!-- Inline critical CSS -->
         <style>
-            body{margin:0;background:#0f172a;color:#e2e8f0;font-family:Inter,system-ui,sans-serif}
+            body{margin:0;background:#0f172a;color:#e2e8f0;font-family:Inter,system-ui,-apple-system,sans-serif}
             #root{min-height:100vh}
         </style>
     </head>

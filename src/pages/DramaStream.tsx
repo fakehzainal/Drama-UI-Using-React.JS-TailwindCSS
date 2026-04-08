@@ -68,7 +68,7 @@ export default function DramaStream() {
             <div className="bg-slate-900 text-slate-200 min-h-screen font-sans flex items-center justify-center">
                 <div className="text-center space-y-4">
                     <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto"></div>
-                    <p className="text-slate-500 font-bold tracking-widest uppercase text-sm">Memuat stream...</p>
+                    <p className="text-slate-400 font-bold tracking-widest uppercase text-sm">Memuat stream...</p>
                 </div>
             </div>
         );
@@ -79,7 +79,7 @@ export default function DramaStream() {
             <div className="bg-slate-900 text-slate-200 min-h-screen font-sans flex items-center justify-center">
                 <div className="text-center">
                     <div className="text-6xl mb-4">😥</div>
-                    <p className="text-slate-500 text-xl">Stream tidak ditemukan</p>
+                    <p className="text-slate-400 text-xl">Stream tidak ditemukan</p>
                     <Link to="/" className="mt-6 inline-block text-blue-400 hover:text-blue-300 font-bold">← Kembali</Link>
                 </div>
             </div>
@@ -89,15 +89,15 @@ export default function DramaStream() {
     const videoUrl = streamData[quality];
 
     return (
-        <div className="bg-slate-900 text-slate-200 min-h-screen font-sans pb-24 selection:bg-blue-500/30">
+        <main className="bg-slate-900 text-slate-200 min-h-screen font-sans pb-24 selection:bg-blue-500/30">
             <div className="max-w-7xl mx-auto p-6 md:p-12">
                 <Navbar />
 
                 {/* Breadcrumbs */}
                 <nav className="flex items-center gap-3 text-xs font-black uppercase tracking-tighter mt-12 mb-8">
-                    <Link to="/" className="text-slate-500 hover:text-blue-500 transition-colors">HOME</Link>
+                    <Link to="/" className="text-slate-400 hover:text-blue-500 transition-colors">HOME</Link>
                     <span className="text-slate-700">/</span>
-                    <Link to={`/drama/${drama.id}`} className="text-slate-500 hover:text-blue-500 transition-colors truncate max-w-[150px]">{drama.title.split(' ').slice(0,3).join(' ')}...</Link>
+                    <Link to={`/drama/${drama.id}`} className="text-slate-400 hover:text-blue-500 transition-colors truncate max-w-[150px]">{drama.title.split(' ').slice(0,3).join(' ')}...</Link>
                     <span className="text-slate-700">/</span>
                     <span className="text-blue-400">{currentEpisode?.episode_label?.toUpperCase() || `EPISODE ${streamingId}`}</span>
                 </nav>
@@ -120,7 +120,7 @@ export default function DramaStream() {
                             ) : (
                                 <div className="absolute inset-0 flex items-center justify-center flex-col gap-4">
                                     <div className="text-6xl animate-pulse">🚫</div>
-                                    <p className="text-slate-500 font-black tracking-widest uppercase text-sm">Video tidak tersedia</p>
+                                    <p className="text-slate-400 font-black tracking-widest uppercase text-sm">Video tidak tersedia</p>
                                 </div>
                             )}
                         </div>
@@ -161,7 +161,7 @@ export default function DramaStream() {
 
                         {/* Episode List Toggle (Horizontal Scroll) */}
                         <div className="space-y-4">
-                            <h3 className="text-xs font-black tracking-[0.2em] text-slate-500 uppercase px-6">Episode Lainnya</h3>
+                            <h2 className="text-xs font-black tracking-[0.2em] text-slate-400 uppercase px-6">Episode Lainnya</h2>
                             <div className="flex gap-4 overflow-x-auto pb-4 px-4 scrollbar-hide">
                                 {drama.data_episode?.map((ep) => (
                                     <Link 
@@ -183,6 +183,6 @@ export default function DramaStream() {
             </div>
 
             <BackgroundBlur />
-        </div>
+        </main>
     );
 }

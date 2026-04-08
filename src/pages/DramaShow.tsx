@@ -44,13 +44,13 @@ export default function DramaShow() {
 
     if (loading) {
         return (
-            <div className="bg-slate-900 text-slate-200 min-h-screen font-sans pb-24">
+            <main className="bg-slate-900 text-slate-200 min-h-screen font-sans pb-24">
                 <div className="max-w-7xl mx-auto p-6 md:p-12">
                     <Navbar />
                     <div className="mt-12"><DetailSkeleton /></div>
                 </div>
                 <BackgroundBlur />
-            </div>
+            </main>
         );
     }
 
@@ -59,7 +59,7 @@ export default function DramaShow() {
             <div className="bg-slate-900 text-slate-200 min-h-screen font-sans flex items-center justify-center">
                 <div className="text-center">
                     <div className="text-6xl mb-4">😥</div>
-                    <p className="text-slate-500 text-xl">Drama tidak ditemukan</p>
+                    <p className="text-slate-400 text-xl">Drama tidak ditemukan</p>
                     <Link to="/" className="mt-6 inline-block text-blue-400 hover:text-blue-300 font-bold">← Kembali</Link>
                 </div>
             </div>
@@ -67,15 +67,15 @@ export default function DramaShow() {
     }
 
     return (
-        <div className="bg-slate-900 text-slate-200 min-h-screen font-sans pb-24 selection:bg-blue-500/30">
+        <main className="bg-slate-900 text-slate-200 min-h-screen font-sans pb-24 selection:bg-blue-500/30">
             <div className="max-w-7xl mx-auto p-6 md:p-12">
                 <Navbar />
 
                 {/* Breadcrumbs */}
                 <nav className="flex items-center gap-3 text-xs font-black uppercase tracking-tighter mt-12 mb-6">
-                    <Link to="/" className="text-slate-500 hover:text-blue-500 transition-colors">HOME</Link>
+                    <Link to="/" className="text-slate-400 hover:text-blue-500 transition-colors">HOME</Link>
                     <span className="text-slate-700">/</span>
-                    <span className="text-slate-500">DRAMA</span>
+                    <span className="text-slate-400">DRAMA</span>
                     <span className="text-slate-700">/</span>
                     <span className="text-blue-400 truncate max-w-[200px]">{drama.title}</span>
                 </nav>
@@ -164,7 +164,7 @@ export default function DramaShow() {
                                     ))
                                 ) : (
                                     <div className="col-span-full py-12 text-center bg-slate-800/20 rounded-2xl border border-dashed border-slate-700">
-                                        <p className="text-slate-500 italic uppercase tracking-widest text-xs">Belum ada episode yang tersedia</p>
+                                        <p className="text-slate-400 italic uppercase tracking-widest text-xs">Belum ada episode yang tersedia</p>
                                     </div>
                                 )}
                             </div>
@@ -174,6 +174,6 @@ export default function DramaShow() {
             </div>
 
             <BackgroundBlur />
-        </div>
+        </main>
     );
 }

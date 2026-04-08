@@ -56,7 +56,7 @@ export default function DramaIndex() {
     }, [currentCategory, currentPage, searchTerm]);
 
     return (
-        <div className="bg-slate-900 text-slate-200 min-h-screen font-sans p-6 md:p-12 pb-24 selection:bg-blue-500/30">
+        <main className="bg-slate-900 text-slate-200 min-h-screen font-sans p-6 md:p-12 pb-24 selection:bg-blue-500/30">
             <div className="max-w-7xl mx-auto">
                 <Navbar currentCategory={currentCategory} />
                 <Header searchTerm={searchTerm} currentCategory={currentCategory} />
@@ -72,7 +72,7 @@ export default function DramaIndex() {
                         ) : (
                             <div className="col-span-full py-20 text-center">
                                 <div className="text-6xl mb-4">📺</div>
-                                <p className="text-slate-500 text-xl">Tidak ada drama yang ditemukan.</p>
+                                <p className="text-slate-400 text-xl">Tidak ada drama yang ditemukan.</p>
                             </div>
                         )}
                     </div>
@@ -84,6 +84,6 @@ export default function DramaIndex() {
             </div>
             
             <BackgroundBlur />
-        </div>
+        </main>
     );
 }

@@ -42,7 +42,7 @@ export default function DramaPopular() {
     }, []);
 
     return (
-        <div className="bg-slate-900 text-slate-200 min-h-screen font-sans pb-24 selection:bg-blue-500/30">
+        <main className="bg-slate-900 text-slate-200 min-h-screen font-sans pb-24 selection:bg-blue-500/30">
             <div className="max-w-7xl mx-auto p-6 md:p-12">
                 <Navbar />
 
@@ -51,7 +51,7 @@ export default function DramaPopular() {
                     <h1 className="text-4xl md:text-7xl font-black tracking-tighter bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent uppercase leading-tight">
                         DRAMA TERPOPULER
                     </h1>
-                    <p className="text-slate-500 font-medium text-lg max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-slate-400 font-medium text-lg max-w-2xl mx-auto leading-relaxed">
                         Koleksi drama pilihan dengan jumlah penayangan terbanyak minggu ini.
                     </p>
                 </header>
@@ -72,7 +72,7 @@ export default function DramaPopular() {
                         ) : (
                             <div className="col-span-full py-20 text-center">
                                 <div className="text-6xl mb-4">🔇</div>
-                                <p className="text-slate-500 text-xl">Sedang memuat data terpopuler...</p>
+                                <p className="text-slate-400 text-xl">Sedang memuat data terpopuler...</p>
                             </div>
                         )}
                     </div>
@@ -80,6 +80,6 @@ export default function DramaPopular() {
             </div>
 
             <BackgroundBlur />
-        </div>
+        </main>
     );
 }
